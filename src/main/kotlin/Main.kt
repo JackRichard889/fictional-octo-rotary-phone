@@ -83,61 +83,53 @@ fun buildNodeTree(k: String) : List<DirectionNode> {
 }
 
 fun main() {
-    val n1 = MetadataNode(position = -1.0 to 0.0, metadata = Metadata('A', 1, 1, type = RoomType.CLASSROOM))
-    val n2 = DirectionNode(position = 0.0 to 0.0, id = "2")
-    val n3 = DirectionNode(position = 0.0 to 1.0, id = "3")
-    val n4 = MetadataNode(position = 1.0 to 1.0, metadata = Metadata('A', 1, 2, type = RoomType.OTHER))
-    val n5 = DirectionNode(position = 0.5 to 1.0, id = "5")
-    val n6 = MetadataNode(position = 1.0 to 0.5, metadata = Metadata('A', 1, 3, type = RoomType.CLASSROOM))
-
-    n1.addNeighbor(n2)
-    n2.addNeighbor(n3)
-    n3.addNeighbor(n4)
-    n2.addNeighbor(n5)
-    n5.addNeighbor(n6)
-    n6.addNeighbor(n4)
-
-    println(mapDirections(n1.paths(n4)).joinToString("\n"))
-    println(allNodes(n1).filterIsInstance<MetadataNode>())
-
     val nod = buildNodeTree("""{
     "elements": [
         {
-            "id": "137bc375-6b7f-40be-916b-3cb3df9f71ac",
+            "id": "9458af77-69d4-4865-9ce3-c2476d5b8ffd",
             "x": -0.5,
-            "y": -0.0,
-            "neighbors": [
-                "67510ce8-568a-479d-8efe-43b92c50973a"
-            ]
-        },
-        {
-            "id": "67510ce8-568a-479d-8efe-43b92c50973a",
-            "x": -0.2,
-            "y": 0.0,
-            "neighbors": [
-                "137bc375-6b7f-40be-916b-3cb3df9f71ac",
-                "853257ac-7ad1-4596-b901-f7a2661745b0"
-            ]
-        },
-        {
-            "id": "853257ac-7ad1-4596-b901-f7a2661745b0",
-            "x": -0.2,
             "y": 0.6,
             "neighbors": [
-                "67510ce8-568a-479d-8efe-43b92c50973a",
-                "7eda0750-669a-406c-a882-1f7035a7eed7"
+                "90b68ec2-3290-4ea4-a005-8129dcab5c81"
             ]
         },
         {
-            "id": "7eda0750-669a-406c-a882-1f7035a7eed7",
-            "x": 0.0,
-            "y": 0.6,
+            "id": "90b68ec2-3290-4ea4-a005-8129dcab5c81",
+            "x": -0.5,
+            "y": 0.8,
             "neighbors": [
-                "853257ac-7ad1-4596-b901-f7a2661745b0"
+                "9458af77-69d4-4865-9ce3-c2476d5b8ffd",
+                "a4c61917-599a-414a-a3b2-cd34bfaa82d4"
+            ]
+        },
+        {
+            "id": "0c0673a8-ddb6-4c77-a693-0f9b4353f910",
+            "x": -0.1,
+            "y": 0.8,
+            "neighbors": [
+                "a4c61917-599a-414a-a3b2-cd34bfaa82d4"
+            ]
+        },
+        {
+            "id": "6385a18a-4260-49e4-aa34-3ec041cbed6d",
+            "x": -0.4,
+            "y": 0.4,
+            "neighbors": [
+                "a4c61917-599a-414a-a3b2-cd34bfaa82d4"
+            ]
+        },
+        {
+            "id": "a4c61917-599a-414a-a3b2-cd34bfaa82d4",
+            "x": -0.4,
+            "y": 0.8,
+            "neighbors": [
+                "90b68ec2-3290-4ea4-a005-8129dcab5c81",
+                "0c0673a8-ddb6-4c77-a693-0f9b4353f910",
+                "6385a18a-4260-49e4-aa34-3ec041cbed6d"
             ]
         }
     ]
 }""")
 
-    println(mapDirections(nod.first().paths(nod.last())).joinToString(separator = "\n"))
+    println(mapDirections(nod.random().paths(nod.random())).joinToString(separator = "\n"))
 }
