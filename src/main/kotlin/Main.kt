@@ -1,5 +1,5 @@
-import com.lectra.koson.ObjectType
-import com.lectra.koson.obj
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 import kotlin.math.ceil
 import kotlin.math.pow
 import kotlin.math.sqrt
@@ -16,7 +16,7 @@ data class Metadata(val building: Char, val floor: Int, val room: Int, val type:
 enum class Direction { NORTH, EAST, WEST, SOUTH }
 
 open class DirectionNode(
-    val neighbors: MutableList<DirectionNode> = mutableListOf(),
+    var neighbors: MutableList<DirectionNode> = mutableListOf(),
     val id: String,
     val position: Pair<Double, Double>
 ) {
@@ -65,9 +65,22 @@ fun allNodes(start: DirectionNode, l: List<DirectionNode> = listOf(start)) : Lis
     return (l + start.neighbors.filter { !l.contains(it) }.map { allNodes(it, l + it) }.flatten()).distinct()
 }
 
-fun buildNodeTree(k: ObjectType) : List<DirectionNode> =
-    emptyList()
+@kotlinx.serialization.Serializable
+data class NodeLoad(val elements: List<DirectionNodeLoad>)
 
+@kotlinx.serialization.Serializable
+data class DirectionNodeLoad(val x: Double, val y: Double, val neighbors: List<String>, val id: String) {
+    fun toNode() : DirectionNode = DirectionNode(id = id, position = x to y)
+}
+
+fun buildNodeTree(k: String) : List<DirectionNode> {
+    val elements = Json.decodeFromString<NodeLoad>(k).elements
+    val nodes = elements.map { it.toNode() }
+
+    elements.forEachIndexed { i, n -> nodes[i].neighbors = n.neighbors.map { nod -> nodes.first { no -> no.id == nod } }.toMutableList() }
+
+    return nodes
+}
 
 fun main() {
     val n1 = MetadataNode(position = -1.0 to 0.0, metadata = Metadata('A', 1, 1, type = RoomType.CLASSROOM))
@@ -86,4 +99,45 @@ fun main() {
 
     println(mapDirections(n1.paths(n4)).joinToString("\n"))
     println(allNodes(n1).filterIsInstance<MetadataNode>())
+
+    val nod = buildNodeTree("""{
+    "elements": [
+        {
+            "id": "137bc375-6b7f-40be-916b-3cb3df9f71ac",
+            "x": -0.5,
+            "y": -0.0,
+            "neighbors": [
+                "67510ce8-568a-479d-8efe-43b92c50973a"
+            ]
+        },
+        {
+            "id": "67510ce8-568a-479d-8efe-43b92c50973a",
+            "x": -0.2,
+            "y": 0.0,
+            "neighbors": [
+                "137bc375-6b7f-40be-916b-3cb3df9f71ac",
+                "853257ac-7ad1-4596-b901-f7a2661745b0"
+            ]
+        },
+        {
+            "id": "853257ac-7ad1-4596-b901-f7a2661745b0",
+            "x": -0.2,
+            "y": 0.6,
+            "neighbors": [
+                "67510ce8-568a-479d-8efe-43b92c50973a",
+                "7eda0750-669a-406c-a882-1f7035a7eed7"
+            ]
+        },
+        {
+            "id": "7eda0750-669a-406c-a882-1f7035a7eed7",
+            "x": 0.0,
+            "y": 0.6,
+            "neighbors": [
+                "853257ac-7ad1-4596-b901-f7a2661745b0"
+            ]
+        }
+    ]
+}""")
+
+    println(mapDirections(nod.first().paths(nod.last())).joinToString(separator = "\n"))
 }

@@ -2,10 +2,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.6.20"
+    kotlin("plugin.serialization") version "1.6.20"
     application
 }
 
-group = "org.example"
+group = "us.techhigh"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -17,6 +18,7 @@ dependencies {
     implementation("io.ktor:ktor-server-netty:2.0.1")
     implementation("ch.qos.logback:logback-classic:1.2.11")
     implementation("com.lectra:koson:1.2.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     testImplementation(kotlin("test"))
 }
 
