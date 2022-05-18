@@ -1,3 +1,4 @@
+import kotlin.math.ceil
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -5,14 +6,15 @@ const val coordXScale = 1.0
 const val coordYScale = 1.0
 const val maxSteps = 16
 
-data class Metadata(val building: Char, val floor: Int, val room: Int) {
+enum class RoomType { CLASSROOM, OFFICE, SHOP, CAFETERIA, BATHROOM, OTHER }
+data class Metadata(val building: Char, val floor: Int, val room: Int, val type: RoomType = RoomType.OTHER) {
     fun getIdentifier() : String = "$building$floor${(if (room < 10) "0" else "") + room.toString()}"
 }
 
 enum class Direction { NORTH, EAST, WEST, SOUTH }
 
-class DirectionNode(
-    private val neighbors: MutableList<DirectionNode> = mutableListOf(),
+open class DirectionNode(
+    val neighbors: MutableList<DirectionNode> = mutableListOf(),
     val id: String,
     val position: Pair<Double, Double>
 ) {
@@ -25,7 +27,6 @@ class DirectionNode(
             else -> throw Exception("Nodes are at the same position!")
         }
 
-    fun getNeighbors() = neighbors
     fun addNeighbor(other: DirectionNode) {
         this.neighbors.add(other)
         other.neighbors.add(this)
@@ -51,18 +52,24 @@ class DirectionNode(
     override fun toString(): String = id
 }
 
+class MetadataNode(neighbors: MutableList<DirectionNode> = mutableListOf(), position: Pair<Double, Double>, metadata: Metadata) : DirectionNode(neighbors, metadata.getIdentifier(), position)
+
 fun mapDirections(path: List<DirectionNode>) : List<String> =
-    path.take(path.size - 1).mapIndexed { i, n ->
-        "Go " + n.directionTo(path[i + 1]) + " for " + n.distanceTo(path[i + 1]) + " feet towards " + path[i + 1] + "."
+    listOf("Start at ${path.first()}.") + path.take(path.size - 1).mapIndexed { i, n ->
+        "Go " + n.directionTo(path[i + 1]) + " for " + ceil(n.distanceTo(path[i + 1])).toInt() + " feet towards " + path[i + 1] + "."
     } + "Arrive at ${path.last()}!"
 
+fun allNodes(start: DirectionNode, l: List<DirectionNode> = listOf(start)) : List<DirectionNode> {
+    return (l + start.neighbors.filter { !l.contains(it) }.map { allNodes(it, l + it) }.flatten()).distinct()
+}
+
 fun main() {
-    val n1 = DirectionNode(position = -1.0 to 0.0, id = "1")
+    val n1 = MetadataNode(position = -1.0 to 0.0, metadata = Metadata('A', 1, 1, type = RoomType.CLASSROOM))
     val n2 = DirectionNode(position = 0.0 to 0.0, id = "2")
     val n3 = DirectionNode(position = 0.0 to 1.0, id = "3")
-    val n4 = DirectionNode(position = 1.0 to 1.0, id = "4")
+    val n4 = MetadataNode(position = 1.0 to 1.0, metadata = Metadata('A', 1, 2, type = RoomType.OTHER))
     val n5 = DirectionNode(position = 0.5 to 1.0, id = "5")
-    val n6 = DirectionNode(position = 1.0 to 0.5, id = "6")
+    val n6 = MetadataNode(position = 1.0 to 0.5, metadata = Metadata('A', 1, 3, type = RoomType.CLASSROOM))
 
     n1.addNeighbor(n2)
     n2.addNeighbor(n3)
@@ -72,4 +79,5 @@ fun main() {
     n6.addNeighbor(n4)
 
     println(mapDirections(n1.paths(n4)).joinToString("\n"))
+    println(allNodes(n1).filterIsInstance<MetadataNode>())
 }
