@@ -1,3 +1,5 @@
+import com.lectra.koson.ObjectType
+import com.lectra.koson.obj
 import kotlin.math.ceil
 import kotlin.math.pow
 import kotlin.math.sqrt
@@ -8,7 +10,7 @@ const val maxSteps = 16
 
 enum class RoomType { CLASSROOM, OFFICE, SHOP, CAFETERIA, BATHROOM, OTHER }
 data class Metadata(val building: Char, val floor: Int, val room: Int, val type: RoomType = RoomType.OTHER) {
-    fun getIdentifier() : String = "$building$floor${(if (room < 10) "0" else "") + room.toString()}"
+    fun getIdentifier() = "$building$floor${(if (room < 10) "0" else "") + room.toString()}"
 }
 
 enum class Direction { NORTH, EAST, WEST, SOUTH }
@@ -54,7 +56,7 @@ open class DirectionNode(
 
 class MetadataNode(neighbors: MutableList<DirectionNode> = mutableListOf(), position: Pair<Double, Double>, metadata: Metadata) : DirectionNode(neighbors, metadata.getIdentifier(), position)
 
-fun mapDirections(path: List<DirectionNode>) : List<String> =
+fun mapDirections(path: List<DirectionNode>) =
     listOf("Start at ${path.first()}.") + path.take(path.size - 1).mapIndexed { i, n ->
         "Go " + n.directionTo(path[i + 1]) + " for " + ceil(n.distanceTo(path[i + 1])).toInt() + " feet towards " + path[i + 1] + "."
     } + "Arrive at ${path.last()}!"
@@ -62,6 +64,10 @@ fun mapDirections(path: List<DirectionNode>) : List<String> =
 fun allNodes(start: DirectionNode, l: List<DirectionNode> = listOf(start)) : List<DirectionNode> {
     return (l + start.neighbors.filter { !l.contains(it) }.map { allNodes(it, l + it) }.flatten()).distinct()
 }
+
+fun buildNodeTree(k: ObjectType) : List<DirectionNode> =
+    emptyList()
+
 
 fun main() {
     val n1 = MetadataNode(position = -1.0 to 0.0, metadata = Metadata('A', 1, 1, type = RoomType.CLASSROOM))
