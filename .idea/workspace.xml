@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db63302c-dffc-4a41-b7c7-0631614338cf" name="Changes" comment="Fixed all recursion issues and mapping for the 2nd floor of B building.">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/floors/b1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/floors/b2.json" afterDir="false" />
+    <list default="true" id="db63302c-dffc-4a41-b7c7-0631614338cf" name="Changes" comment="Mapping for B1 has been added!">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/floors/b0.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
     </list>
@@ -115,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652974401143</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Mapping for B1 has been added!">
+      <created>1652979913433</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652979913433</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,6 +139,7 @@
     <MESSAGE value="Now serializes data and stuff" />
     <MESSAGE value="Changed JSON thing" />
     <MESSAGE value="Fixed all recursion issues and mapping for the 2nd floor of B building." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed all recursion issues and mapping for the 2nd floor of B building." />
+    <MESSAGE value="Mapping for B1 has been added!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mapping for B1 has been added!" />
   </component>
 </project>

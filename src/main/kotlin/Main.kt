@@ -92,7 +92,7 @@ fun buildNodeTree(k: String) : List<DirectionNode> {
 }
 
 fun main() {
-    val nod = buildNodeTree(object {}.javaClass.getResource("/floors/b1.json")?.readText() ?: "")
+    val nod = buildNodeTree(object {}.javaClass.getResource("/floors/b0.json")?.readText() ?: "")
 
     repeat(500) {
         val x = nod.filterIsInstance<MetadataNode>().random()
