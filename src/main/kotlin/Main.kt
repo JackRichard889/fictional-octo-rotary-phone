@@ -1,11 +1,12 @@
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
+import kotlin.math.abs
 import kotlin.math.ceil
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-const val coordXScale = 1.0
-const val coordYScale = 1.0
+const val coordXScale = 130
+const val coordYScale = 123
 const val maxSteps = 16
 
 enum class RoomType { CLASSROOM, OFFICE, SHOP, CAFETERIA, BATHROOM, OTHER }
@@ -22,10 +23,8 @@ open class DirectionNode(
 ) {
     fun distanceTo(other: DirectionNode) : Double = sqrt((other.position.first - this.position.first).times(coordXScale).pow(2) + (other.position.second - this.position.second).times(coordYScale).pow(2))
     fun directionTo(other: DirectionNode) : Direction = when {
-            this.position.first > other.position.first -> Direction.WEST
-            this.position.first < other.position.first -> Direction.EAST
-            this.position.second > other.position.second -> Direction.SOUTH
-            this.position.second < other.position.second -> Direction.NORTH
+            abs(other.position.first - this.position.first) > abs(other.position.second - this.position.second) -> if (this.position.first < other.position.first) Direction.EAST else Direction.WEST
+            abs(other.position.first - this.position.first) < abs(other.position.second - this.position.second) -> if (this.position.second > other.position.second) Direction.SOUTH else Direction.NORTH
             else -> throw Exception("Nodes are at the same position!")
         }
 
@@ -39,7 +38,7 @@ open class DirectionNode(
             from: DirectionNode,
             to: DirectionNode,
             step: Int = 0,
-            path: List<DirectionNode> = listOf()
+            path: List<DirectionNode> = listOf(from)
         ): List<DirectionNode>? {
             if (from == to || step > maxSteps) {
                 return path
@@ -48,7 +47,7 @@ open class DirectionNode(
                 .firstNotNullOfOrNull { getAllPathsR(it, to, step + 1, path + it) }
         }
 
-        return this.neighbors.mapNotNull { getAllPathsR(it, to) }.minByOrNull { it.size } ?: emptyList()
+        return getAllPathsR(this, to) ?: emptyList()
     }
 
     override fun toString(): String = id
@@ -59,9 +58,15 @@ class MetadataNode(neighbors: MutableList<DirectionNode> = mutableListOf(), posi
 }
 
 fun mapDirections(path: List<DirectionNode>) =
-    listOf("Start at ${path.first()}.") + path.take(path.size - 1).mapIndexed { i, n ->
-        "Go " + n.directionTo(path[i + 1]) + " for " + ceil(n.distanceTo(path[i + 1])).toInt() + " feet towards " + path[i + 1] + "."
-    } + "Arrive at ${path.last()}!"
+    if (path.size == 2) {
+        listOf("Start at ${path.first()}.") + ("Go " + path.first().directionTo(path.last()) + " for " + ceil(path.first().distanceTo(path.last())).toInt() + " feet towards " + path.last() + ".") + "Arrive at ${path.last()}!"
+    } else if (path.size > 2) {
+        listOf("Start at ${path.first()}.") + path.take(path.size - 1).mapIndexed { i, n ->
+            "Go " + n.directionTo(path[i + 1]) + " for " + ceil(n.distanceTo(path[i + 1])).toInt() + " feet towards " + path[i + 1] + "."
+        } + "Arrive at ${path.last()}!"
+    } else {
+        throw Exception("No path between points!")
+    }
 
 fun allNodes(start: DirectionNode, l: List<DirectionNode> = listOf(start)) : List<DirectionNode> {
     return (l + start.neighbors.filter { !l.contains(it) }.map { allNodes(it, l + it) }.flatten()).distinct()
@@ -423,7 +428,8 @@ fun main() {
             "y": 0.17,
             "neighbors": [
                 "29af6f52-c457-47fb-90a2-bb21af62c452",
-                "78ee7b79-211e-486f-be09-3fbaa05fa338"
+                "78ee7b79-211e-486f-be09-3fbaa05fa338",
+                "16766945-ceb1-42b6-8afa-403593de9cb4"
             ]
         },
         {
@@ -441,7 +447,8 @@ fun main() {
             "y": 0.02,
             "neighbors": [
                 "6e6abe86-63ed-4b88-ac39-db980982d417",
-                "4ff44c1e-c994-4292-95e7-445ae5340d51"
+                "4ff44c1e-c994-4292-95e7-445ae5340d51",
+                "16766945-ceb1-42b6-8afa-403593de9cb4"
             ]
         },
         {
@@ -466,5 +473,14 @@ fun main() {
     ]
 }""")
 
-    println(mapDirections(nod.first { if (it is MetadataNode) { it.metadata.getIdentifier() == "B216" } }).joinToString(separator = "\n"))
+    //val b203 = nod.first { if (it is MetadataNode) { return@first it.metadata.getIdentifier() == "B203" }; false }
+    //val b216 = nod.first { if (it is MetadataNode) { return@first it.metadata.getIdentifier() == "B216" }; false }
+    repeat(500) {
+        val loc1 = nod.filterIsInstance<MetadataNode>().random().also { println("\nFrom: $it") }
+        val loc2 = nod.filterIsInstance<MetadataNode>().random().also { println("To: $it") }
+
+        if (loc1 != loc2) {
+            println(mapDirections(loc1.paths(loc2)).joinToString(separator = "\n"))
+        }
+    }
 }
