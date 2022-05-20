@@ -74,7 +74,30 @@
       <recent name="C:\Users\richardj\Documents\CoolProjecT\src\main\resources\floors" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.NavTests">
+    <configuration name="NavTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;NavTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainKt" />
       <module name="CoolProjecT.main" />
@@ -84,6 +107,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.NavTests" />
         <item itemvalue="Kotlin.MainKt" />
       </list>
     </recent_temporary>
