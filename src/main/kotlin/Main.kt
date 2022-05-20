@@ -11,15 +11,42 @@ const val maxSteps = 128
 
 abstract class Building(val identifier: Char) {
     abstract val floors: List<List<DirectionNode>>
+    abstract val floorRange: List<Int>
 
     fun paths(_from: String, _to: String) : List<DirectionNode> {
         val from = floors.flatten().first { it.id == _from || if (it is MetadataNode) it.metadata.getIdentifier() == _from else false }
         val to = floors.flatten().first { it.id == _to || if (it is MetadataNode) it.metadata.getIdentifier() == _to else false }
         return from.paths(to)
     }
+
+    fun loadElevators() {
+        val elevators = floors.flatten().filterIsInstance<FlooredNode>().filter { it.type == "elevator" }
+        floors.forEachIndexed { i, it ->
+            val elevator = it.filterIsInstance<FlooredNode>().first { it.type == "elevator" }
+            it.filterIsInstance<FlooredNode>().first { it.type == "elevator" }.floor = floorRange[i]
+            it.filterIsInstance<FlooredNode>().first { it.type == "elevator" }.neighbors.addAll(elevators.filter { it.id != elevator.id })
+        }
+    }
+
+    fun loadStairs() {
+        floors.first()
+            .filterIsInstance<FlooredNode>()
+            .filter { it.type.contains("stair") }
+            .map { it.type }.forEach { stair ->
+                val stairsAll = floors.flatten().filterIsInstance<FlooredNode>().filter { it.type == stair }
+                floors.forEachIndexed { index, directionNodes ->
+                    val stairs = directionNodes.filterIsInstance<FlooredNode>().filter { it.type == stair }
+                    if (stairs.isNotEmpty()) {
+                        directionNodes.filterIsInstance<FlooredNode>().first { it.type == stair }.floor = floorRange[index]
+                        directionNodes.filterIsInstance<FlooredNode>().first { it.type == stair }.neighbors.addAll(stairsAll.filter { it.id != stairs.first().id })
+                    }
+                }
+            }
+    }
 }
 
 object BuildingB : Building('B') {
+    override val floorRange: List<Int> = (0..4).toList()
     override val floors = listOf(
         buildNodeTree(object {}.javaClass.getResource("/floors/b0.json")?.readText() ?: ""),
         buildNodeTree(object {}.javaClass.getResource("/floors/b1.json")?.readText() ?: ""),
@@ -29,12 +56,21 @@ object BuildingB : Building('B') {
     )
 
     init {
-        val elevators = floors.flatten().filterIsInstance<FlooredNode>().filter { it.type == "elevator" }
-        floors.forEachIndexed { i, it ->
-            val elevator = it.filterIsInstance<FlooredNode>().first { it.type == "elevator" }
-            it.filterIsInstance<FlooredNode>().first { it.type == "elevator" }.floor = i
-            it.filterIsInstance<FlooredNode>().first { it.type == "elevator" }.neighbors.addAll(elevators.filter { it.id != elevator.id })
-        }
+        loadElevators()
+        loadStairs()
+    }
+}
+
+object BuildingC : Building('C') {
+    override val floorRange: List<Int> = (1 ..4).filter { it != 2 }.toList()
+    override val floors = listOf(
+        buildNodeTree(object {}.javaClass.getResource("/floors/c1.json")?.readText() ?: ""),
+        buildNodeTree(object {}.javaClass.getResource("/floors/c3.json")?.readText() ?: ""),
+        buildNodeTree(object {}.javaClass.getResource("/floors/c4.json")?.readText() ?: ""),
+    )
+
+    init {
+        loadStairs()
     }
 }
 
@@ -43,7 +79,7 @@ data class Metadata(val building: Char, val floor: Int, val room: Int, val type:
     fun getIdentifier() = "$building$floor${(if (room < 10) "0" else "") + room.toString()}"
 }
 
-enum class Direction { NORTH, EAST, WEST, SOUTH, ELEVATOR, UNSPECIFIED }
+enum class Direction { NORTH, EAST, WEST, SOUTH, ELEVATOR, STAIRS, UNSPECIFIED }
 
 open class DirectionNode(
     var neighbors: MutableList<DirectionNode> = mutableListOf(),
@@ -55,10 +91,11 @@ open class DirectionNode(
         return sqrt((other.position.first - this.position.first).times(coordXScale).pow(2) + (other.position.second - this.position.second).times(coordYScale).pow(2))
     }
     fun directionTo(other: DirectionNode) : Direction = when {
-            this is FlooredNode && other is FlooredNode -> Direction.ELEVATOR
+            this is FlooredNode && other is FlooredNode && this.type == "elevator" -> Direction.ELEVATOR
+            this is FlooredNode && other is FlooredNode && this.type.contains("stair") -> Direction.STAIRS
             abs(other.position.first - this.position.first) > abs(other.position.second - this.position.second) -> if (this.position.first < other.position.first) Direction.EAST else Direction.WEST
             abs(other.position.first - this.position.first) < abs(other.position.second - this.position.second) -> if (this.position.second > other.position.second) Direction.SOUTH else Direction.NORTH
-            else -> throw Exception("Nodes are at the same position!")
+            else -> { println(this); println(other); throw Exception("Nodes are at the same position!") }
         }
 
     fun paths(to: DirectionNode) : List<DirectionNode> {
@@ -136,5 +173,11 @@ fun buildNodeTree(k: String) : List<DirectionNode> {
 }
 
 fun main() {
-    println(BuildingB.paths("B216", "B303").format().joinToString("\n"))
+    repeat(500) {
+        val s = BuildingC.floors.flatten().filterIsInstance<MetadataNode>().random()
+        val e = BuildingC.floors.flatten().filterIsInstance<MetadataNode>().random()
+
+        if (s != e) { println(BuildingC.paths(s.metadata.getIdentifier(), e.metadata.getIdentifier()).format().joinToString("\n")) }
+        println()
+    }
 }

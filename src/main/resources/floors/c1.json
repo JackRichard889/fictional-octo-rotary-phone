@@ -1,0 +1,240 @@
+{
+    "elements": [
+        {
+            "id": "62bca497-07f8-401f-b803-5c9ea9e109ee",
+            "x": 0.98,
+            "y": 0.81,
+            "neighbors": [
+                "8e88096a-bd32-4abd-8bac-d2d69ea2bea9"
+            ],
+            "detail": "exit to D"
+        },
+        {
+            "id": "c3faef1e-a27a-4a77-b332-bd17d3c3f3b0",
+            "x": 0.84,
+            "y": 0.83,
+            "neighbors": [
+                "8e88096a-bd32-4abd-8bac-d2d69ea2bea9"
+            ],
+            "room": "C130"
+        },
+        {
+            "id": "653cfc00-3272-4c8b-a7e4-bba9241e9a58",
+            "x": 0.76,
+            "y": 0.82,
+            "neighbors": [
+                "57261aad-7cd7-4b60-909d-4dde4ad04263"
+            ],
+            "detail": "entrance to carpentry"
+        },
+        {
+            "id": "8e88096a-bd32-4abd-8bac-d2d69ea2bea9",
+            "x": 0.84,
+            "y": 0.9,
+            "neighbors": [
+                "62bca497-07f8-401f-b803-5c9ea9e109ee",
+                "c3faef1e-a27a-4a77-b332-bd17d3c3f3b0",
+                "57261aad-7cd7-4b60-909d-4dde4ad04263"
+            ]
+        },
+        {
+            "id": "57261aad-7cd7-4b60-909d-4dde4ad04263",
+            "x": 0.77,
+            "y": 0.91,
+            "neighbors": [
+                "653cfc00-3272-4c8b-a7e4-bba9241e9a58",
+                "8e88096a-bd32-4abd-8bac-d2d69ea2bea9",
+                "2d2d1f7d-2ab5-486c-86f7-a921c4f7c360"
+            ]
+        },
+        {
+            "id": "8dee87a8-a183-4bed-b81f-049d798164e6",
+            "x": 0.06,
+            "y": 0.82,
+            "neighbors": [
+                "2d2d1f7d-2ab5-486c-86f7-a921c4f7c360"
+            ],
+            "room": "C120"
+        },
+        {
+            "id": "fdbc5d3b-fc9a-4933-b020-cce9fa5ea3db",
+            "x": -0.01,
+            "y": 0.83,
+            "neighbors": [
+                "211bf31d-c373-4169-ae0e-27a66c19e201"
+            ],
+            "room": "C119"
+        },
+        {
+            "id": "2d2d1f7d-2ab5-486c-86f7-a921c4f7c360",
+            "x": 0.06,
+            "y": 0.91,
+            "neighbors": [
+                "57261aad-7cd7-4b60-909d-4dde4ad04263",
+                "8dee87a8-a183-4bed-b81f-049d798164e6",
+                "211bf31d-c373-4169-ae0e-27a66c19e201"
+            ]
+        },
+        {
+            "id": "211bf31d-c373-4169-ae0e-27a66c19e201",
+            "x": -0.01,
+            "y": 0.91,
+            "neighbors": [
+                "fdbc5d3b-fc9a-4933-b020-cce9fa5ea3db",
+                "2d2d1f7d-2ab5-486c-86f7-a921c4f7c360",
+                "58f189df-3818-4ebf-a3fe-eabccc74d235"
+            ]
+        },
+        {
+            "id": "cb4b4a4a-bd21-4a2b-afd5-c0ed4a8b4c97",
+            "x": -0.24,
+            "y": 0.83,
+            "neighbors": [
+                "58f189df-3818-4ebf-a3fe-eabccc74d235"
+            ],
+            "room": "C117"
+        },
+        {
+            "id": "58f189df-3818-4ebf-a3fe-eabccc74d235",
+            "x": -0.24,
+            "y": 0.91,
+            "neighbors": [
+                "211bf31d-c373-4169-ae0e-27a66c19e201",
+                "cb4b4a4a-bd21-4a2b-afd5-c0ed4a8b4c97",
+                "7afec6f8-8230-4399-85f1-7ff9e83438a8"
+            ]
+        },
+        {
+            "id": "5878faeb-12f7-424b-895e-79b82f03a3e5",
+            "x": -0.49,
+            "y": 0.78,
+            "neighbors": [
+                "7afec6f8-8230-4399-85f1-7ff9e83438a8"
+            ],
+            "room": "C117"
+        },
+        {
+            "id": "7afec6f8-8230-4399-85f1-7ff9e83438a8",
+            "x": -0.54,
+            "y": 0.87,
+            "neighbors": [
+                "58f189df-3818-4ebf-a3fe-eabccc74d235",
+                "5878faeb-12f7-424b-895e-79b82f03a3e5",
+                "74ec883a-f3bb-47e3-aa80-5d70c935fe3b"
+            ]
+        },
+        {
+            "id": "394eea60-625a-4c4c-acfd-821714e02baa",
+            "x": -0.52,
+            "y": 0.58,
+            "neighbors": [
+                "74ec883a-f3bb-47e3-aa80-5d70c935fe3b"
+            ]
+        },
+        {
+            "id": "74ec883a-f3bb-47e3-aa80-5d70c935fe3b",
+            "x": -0.56,
+            "y": 0.58,
+            "neighbors": [
+                "7afec6f8-8230-4399-85f1-7ff9e83438a8",
+                "394eea60-625a-4c4c-acfd-821714e02baa",
+                "1137277c-0f18-48b3-8559-3d0a639f7a4e"
+            ]
+        },
+        {
+            "id": "7ed6da41-3098-4dbf-a100-2978d1d3f4e6",
+            "x": -0.52,
+            "y": 0.07,
+            "neighbors": [
+                "1137277c-0f18-48b3-8559-3d0a639f7a4e"
+            ],
+            "room": "C110"
+        },
+        {
+            "id": "37dbe65f-c63c-4357-9f74-eefafbfb095e",
+            "x": -0.81,
+            "y": -0.32,
+            "neighbors": [
+                "321f30fb-1fbf-4253-8df2-70dcae86fc77"
+            ],
+            "type": "stair c1"
+        },
+        {
+            "id": "d7f9800c-2521-4e6a-88e3-64ee69acb8d2",
+            "x": -0.79,
+            "y": -0.06,
+            "neighbors": [
+                "321f30fb-1fbf-4253-8df2-70dcae86fc77",
+                "1b269040-16b7-4714-8d26-44421863c3f4"
+            ]
+        },
+        {
+            "id": "175ecabe-ee78-4666-8a4f-75ae9bf69b4b",
+            "x": -0.52,
+            "y": -0.06,
+            "neighbors": [
+                "1b269040-16b7-4714-8d26-44421863c3f4"
+            ],
+            "room": "C109"
+        },
+        {
+            "id": "1137277c-0f18-48b3-8559-3d0a639f7a4e",
+            "x": -0.55,
+            "y": 0.07,
+            "neighbors": [
+                "74ec883a-f3bb-47e3-aa80-5d70c935fe3b",
+                "7ed6da41-3098-4dbf-a100-2978d1d3f4e6",
+                "1b269040-16b7-4714-8d26-44421863c3f4"
+            ]
+        },
+        {
+            "id": "1b269040-16b7-4714-8d26-44421863c3f4",
+            "x": -0.6,
+            "y": -0.07,
+            "neighbors": [
+                "d7f9800c-2521-4e6a-88e3-64ee69acb8d2",
+                "175ecabe-ee78-4666-8a4f-75ae9bf69b4b",
+                "1137277c-0f18-48b3-8559-3d0a639f7a4e"
+            ]
+        },
+        {
+            "id": "321f30fb-1fbf-4253-8df2-70dcae86fc77",
+            "x": -0.87,
+            "y": -0.25,
+            "neighbors": [
+                "37dbe65f-c63c-4357-9f74-eefafbfb095e",
+                "d7f9800c-2521-4e6a-88e3-64ee69acb8d2",
+                "d13b768c-4ab6-4955-9967-52c2b52ec3d5"
+            ]
+        },
+        {
+            "id": "d13b768c-4ab6-4955-9967-52c2b52ec3d5",
+            "x": -0.97,
+            "y": -0.6,
+            "neighbors": [
+                "321f30fb-1fbf-4253-8df2-70dcae86fc77",
+                "f99fa654-084a-4025-b7e0-c11b9f1d90b5"
+            ],
+            "detail": "exit to B"
+        },
+        {
+            "id": "cea5e425-42c9-477b-a468-b6f891186a22",
+            "x": -0.83,
+            "y": -0.73,
+            "neighbors": [
+                "f99fa654-084a-4025-b7e0-c11b9f1d90b5"
+            ],
+            "room": "C102"
+        },
+        {
+            "id": "f99fa654-084a-4025-b7e0-c11b9f1d90b5",
+            "x": -0.9,
+            "y": -0.77,
+            "neighbors": [
+                "d13b768c-4ab6-4955-9967-52c2b52ec3d5",
+                "cea5e425-42c9-477b-a468-b6f891186a22"
+            ],
+            "detail": "exit to outside"
+        }
+    ]
+}

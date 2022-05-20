@@ -9,7 +9,7 @@
       "neighbors": [
         "37b16b08-e4b2-4a9f-8625-74d1f41a7259"
       ],
-      "detail": "stair b2"
+      "type": "stair b2"
     },
     {
       "id": "37b16b08-e4b2-4a9f-8625-74d1f41a7259",
@@ -179,7 +179,7 @@
       "neighbors": [
         "8f6b3ee6-1f7b-4b13-bf58-9a71e6dd0112"
       ],
-      "detail": "stair b3"
+      "type": "stair b3"
     },
     {
       "id": "8c542c8b-50f4-4737-949e-ae9e59c94480",
