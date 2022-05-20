@@ -7,7 +7,7 @@
             "neighbors": [
                 "c69214ba-b126-43a4-bf1f-dce08ea9c46d"
             ],
-            "detail": "stair b2"
+            "type": "stair b2"
         },
         {
             "id": "6a470bec-3880-4bf6-a2ac-6a8b4aec784f",
@@ -103,7 +103,7 @@
             "neighbors": [
                 "2d679b45-cdbb-4c57-9d57-ebcf87901b98"
             ],
-            "detail": "elevator"
+            "type": "elevator"
         },
         {
             "id": "2f94a48f-c8c2-4188-a2a0-276bd4d56940",
@@ -208,7 +208,7 @@
             "neighbors": [
                 "bb9af3ad-4a29-4878-a054-b1eeffaf0a51"
             ],
-            "detail": "stair b1"
+            "type": "stair b1"
         },
         {
             "id": "76ba4853-d04f-4932-8ac5-ec18cfcc1717",

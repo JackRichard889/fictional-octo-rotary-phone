@@ -9,7 +9,7 @@
       "neighbors": [
         "64592277-f2f6-4b13-b490-00cf912d6e66"
       ],
-      "detail": "stair b2"
+      "type": "stair b2"
     },
     {
       "id": "f0ac3de9-4210-4231-8f8b-8014e9d5828f",
@@ -67,7 +67,7 @@
       "neighbors": [
         "20c6f061-b70b-4675-bb19-8ea97a40abda"
       ],
-      "detail": "stair b1"
+      "type": "stair b1"
     },
     {
       "id": "713703e3-5079-4b36-bbc5-de9071731820",
@@ -105,7 +105,7 @@
       "neighbors": [
         "0d592236-7981-426b-b33d-4d6e8b0805fb"
       ],
-      "detail": "elevator"
+      "type": "elevator"
     },
     {
       "id": "7ca4c334-0684-4592-8efc-b4efd95643a2",
@@ -143,7 +143,7 @@
       "neighbors": [
         "41d50c5c-199e-4ae0-a7b5-dc51bddf09af"
       ],
-      "detail": "stair b3"
+      "type": "stair b3"
     },
     {
       "id": "41d50c5c-199e-4ae0-a7b5-dc51bddf09af",
