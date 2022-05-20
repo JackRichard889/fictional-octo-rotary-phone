@@ -7,7 +7,7 @@
       "neighbors": [
         "79808c16-e790-4d6e-a11a-123ee6cc6e89"
       ],
-      "type": "stairs d1"
+      "type": "stair d1"
     },
     {
       "id": "79808c16-e790-4d6e-a11a-123ee6cc6e89",
@@ -25,8 +25,7 @@
       "neighbors": [
         "79808c16-e790-4d6e-a11a-123ee6cc6e89",
         "fa88c8a8-8f5b-4d7e-956a-56bd7c1ae936"
-      ],
-      "type": "doorway to stairs"
+      ]
     },
     {
       "id": "b7df5488-8d27-40e4-9384-b1dfe889ccd8",
@@ -90,7 +89,7 @@
       "neighbors": [
         "47cfa48b-ea4f-4b43-b9de-cf6a280bf420"
       ],
-      "type": "stairs d1"
+      "type": "stair d1"
     },
     {
       "id": "47cfa48b-ea4f-4b43-b9de-cf6a280bf420",
@@ -146,7 +145,7 @@
       "neighbors": [
         "3960ff01-7192-499a-9a40-30539678100d"
       ],
-      "type": "stairs d1"
+      "type": "stair d1"
     },
     {
       "id": "3960ff01-7192-499a-9a40-30539678100d",

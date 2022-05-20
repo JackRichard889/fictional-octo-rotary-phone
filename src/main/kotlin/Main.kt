@@ -66,10 +66,24 @@ object BuildingC : Building('C') {
     override val floors = listOf(
         buildNodeTree(object {}.javaClass.getResource("/floors/c1.json")?.readText() ?: ""),
         buildNodeTree(object {}.javaClass.getResource("/floors/c3.json")?.readText() ?: ""),
-        buildNodeTree(object {}.javaClass.getResource("/floors/c4.json")?.readText() ?: ""),
+        buildNodeTree(object {}.javaClass.getResource("/floors/c4.json")?.readText() ?: "")
     )
 
     init {
+        loadStairs()
+    }
+}
+
+object BuildingD : Building('D') {
+    override val floorRange: List<Int> = (1..4).filter { it != 2 }.toList()
+    override val floors = listOf(
+        buildNodeTree(object {}.javaClass.getResource("/floors/d1.json")?.readText() ?: ""),
+        buildNodeTree(object {}.javaClass.getResource("/floors/d3.json")?.readText() ?: ""),
+        buildNodeTree(object {}.javaClass.getResource("/floors/d4.json")?.readText() ?: "")
+    )
+
+    init {
+        loadElevators()
         loadStairs()
     }
 }
@@ -174,10 +188,10 @@ fun buildNodeTree(k: String) : List<DirectionNode> {
 
 fun main() {
     repeat(500) {
-        val s = BuildingC.floors.flatten().filterIsInstance<MetadataNode>().random()
-        val e = BuildingC.floors.flatten().filterIsInstance<MetadataNode>().random()
+        val s = BuildingD.floors.flatten().filterIsInstance<MetadataNode>().random()
+        val e = BuildingD.floors.flatten().filterIsInstance<MetadataNode>().random()
 
-        if (s != e) { println(BuildingC.paths(s.metadata.getIdentifier(), e.metadata.getIdentifier()).format().joinToString("\n")) }
+        if (s != e) { println(BuildingD.paths(s.metadata.getIdentifier(), e.metadata.getIdentifier()).format().joinToString("\n")) }
         println()
     }
 }
