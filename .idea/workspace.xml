@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db63302c-dffc-4a41-b7c7-0631614338cf" name="Changes" comment="Changed direction logic and added fourth floor of B">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/floors/c1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/floors/c3.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/floors/c4.json" afterDir="false" />
+    <list default="true" id="db63302c-dffc-4a41-b7c7-0631614338cf" name="Changes" comment="Added C floors and some new weird logic for directions :\">
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/Test.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/b0.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/floors/b0.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/b1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/floors/b1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/b2.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/floors/b2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/b3.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/floors/b3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/b4.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/floors/b4.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,14 +21,29 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CoolProjecT" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -139,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653060123633</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added C floors and some new weird logic for directions :\">
+      <created>1653065294615</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1653065294615</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +175,7 @@
     <MESSAGE value="Fixed all recursion issues and mapping for the 2nd floor of B building." />
     <MESSAGE value="Mapping for B1 has been added!" />
     <MESSAGE value="Changed direction logic and added fourth floor of B" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed direction logic and added fourth floor of B" />
+    <MESSAGE value="Added C floors and some new weird logic for directions :\" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added C floors and some new weird logic for directions :\" />
   </component>
 </project>
