@@ -1,4 +1,6 @@
 {
+  "scaleX": 75,
+  "scaleY": 89,
   "elements": [
     {
       "id": "9b9db44a-ad99-4ac6-bccc-2aadc295e687",
@@ -64,7 +66,7 @@
       "neighbors": [
         "cb5ae9fb-b3bf-4896-91ff-1b908aae7927"
       ],
-      "detail": "elevator"
+      "type": "elevator"
     },
     {
       "id": "cb5ae9fb-b3bf-4896-91ff-1b908aae7927",

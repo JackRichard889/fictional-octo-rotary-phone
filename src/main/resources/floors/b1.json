@@ -105,7 +105,7 @@
       "neighbors": [
         "0d592236-7981-426b-b33d-4d6e8b0805fb"
       ],
-      "detail": "elevator"
+      "type": "elevator"
     },
     {
       "id": "7ca4c334-0684-4592-8efc-b4efd95643a2",

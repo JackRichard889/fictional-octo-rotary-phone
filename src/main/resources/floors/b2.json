@@ -378,7 +378,7 @@
       "neighbors": [
         "16766945-ceb1-42b6-8afa-403593de9cb4"
       ],
-      "detail": "elevator"
+      "type": "elevator"
     }
   ]
 }
