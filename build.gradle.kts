@@ -15,7 +15,8 @@ repositories {
 
 dependencies {
     implementation("io.ktor:ktor-server-core:2.0.1")
-    implementation("io.ktor:ktor-server-netty:2.0.1")
+    implementation("io.ktor:ktor-server-cio:2.0.1")
+    implementation("io.ktor:ktor-server-html-builder:2.0.1")
     implementation("ch.qos.logback:logback-classic:1.2.11")
     implementation("com.lectra:koson:1.2.3")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")

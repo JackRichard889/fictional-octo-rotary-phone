@@ -1,3 +1,11 @@
+import io.ktor.server.application.*
+import io.ktor.server.cio.*
+import io.ktor.server.engine.*
+import io.ktor.server.html.*
+import io.ktor.server.routing.*
+import kotlinx.html.body
+import kotlinx.html.head
+import kotlinx.html.title
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import kotlin.math.abs
@@ -119,11 +127,11 @@ open class DirectionNode(
             step: Int = 0,
             path: List<DirectionNode> = listOf(from)
         ): List<DirectionNode>? {
-            if (from == to || step > maxSteps) {
-                return path
-            }
+            if (from == to) { return path }
+            if (step > maxSteps) { return null }
             return from.neighbors.filter { !path.contains(it) }
-                .firstNotNullOfOrNull { getAllPathsR(it, to, step + 1, path + it) }
+                .mapNotNull { getAllPathsR(it, to, step + 1, path + it) }
+                .minByOrNull { it.size }
         }
 
         return getAllPathsR(this, to) ?: emptyList()
@@ -187,11 +195,23 @@ fun buildNodeTree(k: String) : List<DirectionNode> {
 }
 
 fun main() {
-    repeat(500) {
-        val s = BuildingD.floors.flatten().filterIsInstance<MetadataNode>().random()
-        val e = BuildingD.floors.flatten().filterIsInstance<MetadataNode>().random()
+    embeddedServer(CIO, port = 80) {
+        routing {
+            get("/") {
+                call.respondHtml {
+                    head {
+                        title { +"WTHS Map" }
+                    }
 
-        if (s != e) { println(BuildingD.paths(s.metadata.getIdentifier(), e.metadata.getIdentifier()).format().joinToString("\n")) }
-        println()
-    }
+                    body {
+
+                    }
+                }
+            }
+
+            get("/directions") {
+
+            }
+        }
+    }.start(wait = true)
 }
