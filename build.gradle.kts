@@ -48,7 +48,11 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
             }
         }
-        val jvmTest by getting
+        val jvmTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
         val jsMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlin-wrappers:kotlin-react:17.0.2-pre.290-kotlin-1.6.10")
