@@ -9,8 +9,11 @@ internal class NavTests {
             val s = BuildingB.floors.flatten().filterIsInstance<MetadataNode>().random()
             val e = BuildingB.floors.flatten().filterIsInstance<MetadataNode>().random()
 
+            println("Testing navigation from $s to $e.")
+
             if (s != e) {
                 assert(BuildingB.paths(s.metadata.getIdentifier(), e.metadata.getIdentifier()).last().id == e.id)
+                println("Successful navigation!")
             }
         }
 
@@ -23,4 +26,5 @@ internal class NavTests {
             }
         }
     }
+
 }

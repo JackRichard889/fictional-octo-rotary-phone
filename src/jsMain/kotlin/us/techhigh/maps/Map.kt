@@ -12,9 +12,9 @@ fun getImage(path: String): HTMLImageElement {
     return image
 }
 
-val canvas = initalizeCanvas()
+val canvas = initializeCanvas()
 
-fun initalizeCanvas(): HTMLCanvasElement {
+fun initializeCanvas(): HTMLCanvasElement {
     val canvas = document.createElement("us.techhigh.maps.getCanvas") as HTMLCanvasElement
     val context = canvas.getContext("2d") as CanvasRenderingContext2D
     context.canvas.width  = window.innerWidth

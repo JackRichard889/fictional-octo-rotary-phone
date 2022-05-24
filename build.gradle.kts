@@ -25,11 +25,11 @@ kotlin {
             useJUnitPlatform()
         }
     }
-    js(LEGACY) {
+    js {
         moduleName = "map"
 
-        binaries.executable()
         browser {
+            binaries.executable()
             commonWebpackConfig {
                 cssSupport.enabled = true
             }
@@ -45,6 +45,8 @@ kotlin {
                 implementation("io.ktor:ktor-server-html-builder:2.0.1")
                 implementation("ch.qos.logback:logback-classic:1.2.11")
                 implementation("com.lectra:koson:1.2.3")
+                implementation("io.ktor:ktor-server-content-negotiation:+")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:+")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
             }
         }
@@ -73,7 +75,39 @@ tasks.named<Copy>("jvmProcessResources") {
     from(jsBrowserDistribution)
 }
 
+tasks.getByName<Jar>("jvmJar") {
+    duplicatesStrategy = org.gradle.api.file.DuplicatesStrategy.INCLUDE
+    val taskName = if (project.hasProperty("isProduction")
+        || project.gradle.startParameter.taskNames.contains("installDist")
+    ) {
+        "jsBrowserProductionWebpack"
+    } else {
+        "jsBrowserDevelopmentWebpack"
+    }
+    val webpackTask = tasks.getByName<org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack>(taskName)
+    dependsOn(webpackTask) // make sure JS gets compiled first
+    from(File(webpackTask.destinationDirectory, webpackTask.outputFileName)) // bring output file along into the JAR
+}
+
+tasks {
+    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+}
+
+distributions {
+    main {
+        contents {
+            from("$buildDir/libs") {
+                rename("${rootProject.name}-jvm", rootProject.name)
+                into("lib")
+            }
+        }
+    }
+}
+
 tasks.named<JavaExec>("run") {
-    dependsOn(tasks.named<Jar>("jvmJar"))
     classpath(tasks.named<Jar>("jvmJar"))
 }
