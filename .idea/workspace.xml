@@ -5,10 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db63302c-dffc-4a41-b7c7-0631614338cf" name="Changes" comment="Tried writing tests and stuff">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/CoolProjecT_js_2_0_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/CoolProjecT_jvm_2_0_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kotlin-js-store/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jsMain/kotlin/us/techhigh/maps/Map.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/jvmMain/kotlin/us/techhigh/maps/Server.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/b0.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/jvmMain/resources/floors/b0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/b1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/jvmMain/resources/floors/b1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/b2.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/jvmMain/resources/floors/b2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/b3.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/jvmMain/resources/floors/b3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/b4.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/jvmMain/resources/floors/b4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/c1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/jvmMain/resources/floors/c1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/c3.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/jvmMain/resources/floors/c3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/c4.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/jvmMain/resources/floors/c4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/d1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/jvmMain/resources/floors/d1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/d3.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/jvmMain/resources/floors/d3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/floors/d4.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/jvmMain/resources/floors/d4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/jvmMain/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/Test.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +52,17 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="CoolProjecT" type="f1a62948:ProjectNode" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CoolProjecT" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CoolProjecT" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -44,6 +74,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -55,28 +86,40 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="29FhJMqG6pcSQd3O6AM6OjkfHCD" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/richardj/Documents/CoolProjecT/src/main/resources/floors&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "last_opened_file_path": "C:/Users/richardj/Documents/CoolProjecT/src/main/resources/floors",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\richardj\Documents\CoolProjecT\src\main\resources\floors" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\richardj\IdeaProjects\fictional-octo-rotary-phone\src\jsMain\kotlin\us\techhigh\maps" />
+      <recent name="C:\Users\richardj\IdeaProjects\fictional-octo-rotary-phone\src\jvmMain\resources" />
+      <recent name="C:\Users\richardj\IdeaProjects\fictional-octo-rotary-phone\src" />
+      <recent name="C:\Users\richardj\IdeaProjects\fictional-octo-rotary-phone\src\jvmMain" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt">
+  <component name="RunManager" selected="Gradle.fictional-octo-rotary-phone [run]">
     <configuration name="NavTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -100,6 +143,27 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="fictional-octo-rotary-phone [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainKt" />
       <module name="CoolProjecT.main" />
@@ -109,6 +173,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.fictional-octo-rotary-phone [run]" />
         <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.NavTests" />
       </list>
@@ -208,6 +273,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Formatting changes and metadata" />
     <MESSAGE value="More node tree changes" />
     <MESSAGE value="Now serializes data and stuff" />

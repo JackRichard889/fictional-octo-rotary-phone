@@ -1,11 +1,12 @@
+package us.techhigh.maps
+
 import io.ktor.server.application.*
 import io.ktor.server.cio.*
 import io.ktor.server.engine.*
 import io.ktor.server.html.*
+import io.ktor.server.http.content.*
 import io.ktor.server.routing.*
-import kotlinx.html.body
-import kotlinx.html.head
-import kotlinx.html.title
+import kotlinx.html.*
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import kotlin.math.abs
@@ -56,11 +57,11 @@ abstract class Building(val identifier: Char) {
 object BuildingB : Building('B') {
     override val floorRange: List<Int> = (0..4).toList()
     override val floors = listOf(
-        buildNodeTree(object {}.javaClass.getResource("/floors/b0.json")?.readText() ?: ""),
-        buildNodeTree(object {}.javaClass.getResource("/floors/b1.json")?.readText() ?: ""),
-        buildNodeTree(object {}.javaClass.getResource("/floors/b2.json")?.readText() ?: ""),
-        buildNodeTree(object {}.javaClass.getResource("/floors/b3.json")?.readText() ?: ""),
-        buildNodeTree(object {}.javaClass.getResource("/floors/b4.json")?.readText() ?: "")
+        buildNodeTree(object {}.javaClass.getResource("/resources/floors/b0.json")?.readText() ?: ""),
+        buildNodeTree(object {}.javaClass.getResource("/resources/floors/b1.json")?.readText() ?: ""),
+        buildNodeTree(object {}.javaClass.getResource("/resources/floors/b2.json")?.readText() ?: ""),
+        buildNodeTree(object {}.javaClass.getResource("/resources/floors/b3.json")?.readText() ?: ""),
+        buildNodeTree(object {}.javaClass.getResource("/resources/floors/b4.json")?.readText() ?: "")
     )
 
     init {
@@ -72,9 +73,9 @@ object BuildingB : Building('B') {
 object BuildingC : Building('C') {
     override val floorRange: List<Int> = (1 ..4).filter { it != 2 }.toList()
     override val floors = listOf(
-        buildNodeTree(object {}.javaClass.getResource("/floors/c1.json")?.readText() ?: ""),
-        buildNodeTree(object {}.javaClass.getResource("/floors/c3.json")?.readText() ?: ""),
-        buildNodeTree(object {}.javaClass.getResource("/floors/c4.json")?.readText() ?: "")
+        buildNodeTree(object {}.javaClass.getResource("/resources/floors/c1.json")?.readText() ?: ""),
+        buildNodeTree(object {}.javaClass.getResource("/resources/floors/c3.json")?.readText() ?: ""),
+        buildNodeTree(object {}.javaClass.getResource("/resources/floors/c4.json")?.readText() ?: "")
     )
 
     init {
@@ -85,9 +86,9 @@ object BuildingC : Building('C') {
 object BuildingD : Building('D') {
     override val floorRange: List<Int> = (1..4).filter { it != 2 }.toList()
     override val floors = listOf(
-        buildNodeTree(object {}.javaClass.getResource("/floors/d1.json")?.readText() ?: ""),
-        buildNodeTree(object {}.javaClass.getResource("/floors/d3.json")?.readText() ?: ""),
-        buildNodeTree(object {}.javaClass.getResource("/floors/d4.json")?.readText() ?: "")
+        buildNodeTree(object {}.javaClass.getResource("/resources/floors/d1.json")?.readText() ?: ""),
+        buildNodeTree(object {}.javaClass.getResource("/resources/floors/d3.json")?.readText() ?: ""),
+        buildNodeTree(object {}.javaClass.getResource("/resources/floors/d4.json")?.readText() ?: "")
     )
 
     init {
@@ -204,13 +205,20 @@ fun main() {
                     }
 
                     body {
+                        h1 { +"Hello world." }
+                        script(src = "map.js") {
 
+                        }
                     }
                 }
             }
 
             get("/directions") {
 
+            }
+
+            static("/") {
+                resources("")
             }
         }
     }.start(wait = true)
