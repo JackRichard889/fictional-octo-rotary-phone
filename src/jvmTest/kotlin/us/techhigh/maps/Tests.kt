@@ -1,5 +1,8 @@
 package us.techhigh.maps
 
+import us.techhigh.maps.buildings.BuildingB
+import us.techhigh.maps.buildings.BuildingC
+import us.techhigh.maps.nodes.MetadataNode
 import kotlin.test.Test
 
 internal class NavTests {
@@ -12,7 +15,7 @@ internal class NavTests {
             println("Testing navigation from $s to $e.")
 
             if (s != e) {
-                assert(BuildingB.paths(s.metadata.getIdentifier(), e.metadata.getIdentifier()).last().id == e.id)
+                assert(BuildingB.paths(s.metadata.getIdentifier(), e.metadata.getIdentifier()).last().to.id == e.id)
                 println("Successful navigation!")
             }
         }
@@ -22,9 +25,8 @@ internal class NavTests {
             val e = BuildingC.floors.flatten().filterIsInstance<MetadataNode>().random()
 
             if (s != e) {
-                assert(BuildingC.paths(s.metadata.getIdentifier(), e.metadata.getIdentifier()).last().id == e.id)
+                assert(BuildingC.paths(s.metadata.getIdentifier(), e.metadata.getIdentifier()).last().to.id == e.id)
             }
         }
     }
-
 }

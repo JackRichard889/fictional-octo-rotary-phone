@@ -36,7 +36,11 @@ kotlin {
         }
     }
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
+            }
+        }
         val commonTest by getting
         val jvmMain by getting {
             dependencies {
@@ -44,7 +48,6 @@ kotlin {
                 implementation("io.ktor:ktor-server-cio:2.0.1")
                 implementation("io.ktor:ktor-server-html-builder:2.0.1")
                 implementation("ch.qos.logback:logback-classic:1.2.11")
-                implementation("com.lectra:koson:1.2.3")
                 implementation("io.ktor:ktor-server-content-negotiation:+")
                 implementation("io.ktor:ktor-serialization-kotlinx-json:+")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")

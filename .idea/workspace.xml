@@ -5,11 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db63302c-dffc-4a41-b7c7-0631614338cf" name="Changes" comment="Replaced some pathfinding logic and added Ktor back to the project!">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/us/techhigh/maps/constants/Steps.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/us/techhigh/maps/data/Metadata.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/us/techhigh/maps/enums/Direction.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/us/techhigh/maps/enums/RoomType.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/us/techhigh/maps/json/DirectionResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/us/techhigh/maps/json/DirectionStep.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/us/techhigh/maps/nodes/DirectionNode.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/us/techhigh/maps/nodes/FlooredNode.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/us/techhigh/maps/nodes/MetadataNode.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jvmMain/kotlin/us/techhigh/maps/Building.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jvmMain/kotlin/us/techhigh/maps/School.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jvmMain/kotlin/us/techhigh/maps/buildings/BuildingA.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jvmMain/kotlin/us/techhigh/maps/buildings/BuildingB.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jvmMain/kotlin/us/techhigh/maps/buildings/BuildingC.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jvmMain/kotlin/us/techhigh/maps/buildings/BuildingD.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jvmMain/kotlin/us/techhigh/maps/buildings/BuildingE.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jsMain/kotlin/us/techhigh/maps/Map.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/jsMain/kotlin/us/techhigh/maps/Map.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jvmMain/kotlin/us/techhigh/maps/Server.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/jvmMain/kotlin/us/techhigh/maps/Server.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jvmTest/kotlin/us/techhigh/maps/Tests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/jvmTest/kotlin/us/techhigh/maps/Tests.kt" afterDir="false" />
     </list>
@@ -58,8 +71,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Class" />
-        <option value="Kotlin File" />
         <option value="package-info" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
