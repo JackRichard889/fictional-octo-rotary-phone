@@ -1,8 +1,8 @@
-package us.techhigh.maps
+package us.techhigh.maps.data
 
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
-import us.techhigh.maps.data.Metadata
+import us.techhigh.maps.json.DirectionStep
 import us.techhigh.maps.nodes.DirectionNode
 import us.techhigh.maps.nodes.FlooredNode
 import us.techhigh.maps.nodes.MetadataNode
@@ -10,7 +10,7 @@ import us.techhigh.maps.nodes.MetadataNode
 abstract class Building(val identifier: Char) {
     abstract val floors: List<List<DirectionNode>>
     abstract val floorRange: List<Int>
-
+    abstract val scale: Pair<Double, Double>
 
     fun paths(_from: String, _to: String) : List<DirectionStep> {
         val from = floors.flatten().first { it.id == _from || if (it is MetadataNode) it.metadata.getIdentifier() == _from else false }
@@ -41,6 +41,10 @@ abstract class Building(val identifier: Char) {
                     }
                 }
             }
+    }
+
+    fun associateBuilding() {
+        floors.forEach { it.forEach { room -> room.building = this } }
     }
 
     object NodeSerializer {

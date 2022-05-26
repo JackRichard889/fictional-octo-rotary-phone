@@ -3,6 +3,7 @@ package us.techhigh.maps.nodes
 import kotlinx.serialization.Transient
 import us.techhigh.maps.enums.Direction
 import us.techhigh.maps.constants.maxSteps
+import us.techhigh.maps.data.Building
 import us.techhigh.maps.json.DirectionStep
 import kotlin.math.abs
 import kotlin.math.ceil
@@ -15,9 +16,11 @@ open class DirectionNode(
     val id: String,
     val position: Pair<Double, Double>
 ) {
+    @Transient var building: Building? = null
+
     private fun distanceTo(other: DirectionNode) : Double {
         if (this is FlooredNode && other is FlooredNode) { return 0.0 }
-        return sqrt((other.position.first - this.position.first).times(coordXScale).pow(2) + (other.position.second - this.position.second).times(coordYScale).pow(2))
+        return sqrt((other.position.first - this.position.first).times(building!!.scale.first).pow(2) + (other.position.second - this.position.second).times(building!!.scale.second).pow(2))
     }
     private fun directionTo(other: DirectionNode) : Direction = when {
         this is FlooredNode && other is FlooredNode && this.type == "elevator" -> Direction.ELEVATOR
