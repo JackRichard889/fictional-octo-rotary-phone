@@ -29,10 +29,10 @@ fun main() {
                 call.respondHtml {
                     head {
                         title { +"WTHS Map" }
+                        styleLink("/style.css")
                     }
 
                     body {
-                        h1 { +"Hello world." }
                         script(src = "CoolProjecT.js") {
 
                         }

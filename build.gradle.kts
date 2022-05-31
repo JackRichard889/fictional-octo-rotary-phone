@@ -36,11 +36,7 @@ kotlin {
         }
     }
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
-            }
-        }
+        val commonMain by getting
         val commonTest by getting
         val jvmMain by getting {
             dependencies {
@@ -63,6 +59,7 @@ kotlin {
                 implementation("org.jetbrains.kotlin-wrappers:kotlin-react:17.0.2-pre.290-kotlin-1.6.10")
                 implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom:17.0.2-pre.290-kotlin-1.6.10")
                 implementation("org.jetbrains.kotlin-wrappers:kotlin-react-css:17.0.2-pre.290-kotlin-1.6.10")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
             }
         }
         val jsTest by getting
