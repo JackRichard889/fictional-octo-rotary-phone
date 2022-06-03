@@ -13,7 +13,7 @@ import kotlin.math.sqrt
 actual open class DirectionNode(
     @kotlinx.serialization.Transient var neighbors: MutableList<DirectionNode> = mutableListOf(),
     val id: String,
-    val position: Pair<Double, Double>
+    var position: Pair<Double, Double>
 ) {
     @kotlinx.serialization.Transient var building: Building? = null
 

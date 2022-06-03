@@ -13,9 +13,23 @@ import kotlinx.html.*
 import kotlinx.serialization.json.Json
 import us.techhigh.maps.json.DirectionResponse
 import us.techhigh.maps.nodes.MetadataNode
+import java.awt.Dimension
+import java.awt.FlowLayout
+import java.awt.Image
+import javax.swing.ImageIcon
+import javax.swing.JFrame
+import javax.swing.JLabel
 
 fun main() {
-    embeddedServer(CIO, port = 80) {
+    initializeMap()
+
+    val frame = JFrame()
+    frame.size = Dimension(1000, 1000)
+    frame.contentPane.layout = FlowLayout()
+    frame.contentPane.add(JLabel(ImageIcon(imageWith()?.getScaledInstance(1000, 1000, Image.SCALE_SMOOTH))))
+    frame.isVisible = true
+
+    embeddedServer(CIO, host = "localhost", port = 80) {
         install(ContentNegotiation) {
             json(Json {
                 prettyPrint = true
@@ -33,6 +47,26 @@ fun main() {
                     }
 
                     body {
+                        input {
+                            placeholder = "From Location"
+                            type = InputType.text
+                            id = "from"
+                        }
+                        input {
+                            placeholder = "To Location"
+                            type = InputType.text
+                            id = "to"
+                        }
+                        input {
+                            type = InputType.button
+                            id = "go"
+                            value = "Go"
+                        }
+
+                        p {
+                            id = "result"
+                        }
+
                         script(src = "CoolProjecT.js") {
 
                         }

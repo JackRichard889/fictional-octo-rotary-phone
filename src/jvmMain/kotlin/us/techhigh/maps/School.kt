@@ -4,7 +4,7 @@ import us.techhigh.maps.buildings.*
 import us.techhigh.maps.nodes.MetadataNode
 
 object School {
-    private val buildings = listOf(
+    val buildings = listOf(
         BuildingB,
         BuildingC,
         BuildingD

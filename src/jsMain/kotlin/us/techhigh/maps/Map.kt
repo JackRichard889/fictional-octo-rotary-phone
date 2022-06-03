@@ -1,18 +1,18 @@
 package us.techhigh.maps
 
-import kotlinext.js.asJsObject
-import kotlinext.js.getOwnPropertyNames
-import org.w3c.dom.*
-import org.w3c.dom.events.MouseEvent
 import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
+import org.w3c.dom.*
+import org.w3c.dom.events.MouseEvent
 import org.w3c.fetch.RequestInit
 import us.techhigh.maps.data.Building
-import kotlin.math.*
+import us.techhigh.maps.json.DirectionResponse
+import kotlin.math.cos
+import kotlin.math.sin
 
-fun getImage(path: String): HTMLImageElement {
+/*fun getImage(path: String): HTMLImageElement {
     val image = window.document.createElement("img") as HTMLImageElement
     image.src = path
     return image
@@ -75,6 +75,17 @@ class CanvasState(private val canvas: HTMLCanvasElement) {
     private fun draw() {
         clear()
 
+        context.drawImage(map,
+            0.0,
+            0.0,
+            map.width.toDouble(),
+            map.height.toDouble(),
+            0.0,
+            0.0,
+            width.toDouble(),
+            height.toDouble()
+        )
+
         points.forEach {
             context.fillStyle = "#ff0000"
             context.fillRect(((it.x / 2) + 0.5) * width, ((it.y * -1 / 2) + 0.5) * height, 2.0, 2.0)
@@ -109,13 +120,12 @@ class Vector(val x: Double = 0.0, val y: Double = 0.0) {
 
 var points = listOf<Building.NodeSerializer.DirectionNodeLoad>()
 
-private val json = Json {
-    ignoreUnknownKeys = true
-    encodeDefaults = true
-}
+
+
+val map by lazy { getImage("/maps/3.png") }
 
 fun main() {
-    window.fetch("/floors/d3.json", RequestInit(method = "GET")).then {
+    window.fetch("/floors/b3.json", RequestInit(method = "GET")).then {
         if (it.ok) {
             it.text().then { str ->
                 points = json.decodeFromString<Building.NodeSerializer.NodeLoad>(str).elements
@@ -125,5 +135,28 @@ fun main() {
 
     CanvasState(canvas).apply {
 
+    }
+}*/
+
+private val json = Json {
+    ignoreUnknownKeys = true
+    encodeDefaults = true
+}
+
+val from = document.getElementById("from") as HTMLInputElement
+val to = document.getElementById("to") as HTMLInputElement
+val go = document.getElementById("go") as HTMLInputElement
+val result = document.getElementById("result") as HTMLParagraphElement
+
+fun main() {
+    go.onclick = {
+        window.fetch("/directions?from=${from.value}&to=${to.value}").then {
+            if (it.ok) {
+                it.text().then { str ->
+                    result.innerHTML =
+                        json.decodeFromString<DirectionResponse>(str).steps.joinToString(separator = "") { "Go ${it.distance} feet to the ${it.direction.toString().lowercase()} from " + it.from + " to " + it.to + ".<br>" }
+                }
+            }
+        }
     }
 }

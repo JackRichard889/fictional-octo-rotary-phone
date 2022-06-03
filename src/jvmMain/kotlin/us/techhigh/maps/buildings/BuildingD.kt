@@ -13,8 +13,8 @@ object BuildingD : Building('D') {
     override val scale = 1.0 to 1.0
 
     init {
-        loadElevators()
         loadStairs()
+        loadElevators()
         associateBuilding()
     }
 }

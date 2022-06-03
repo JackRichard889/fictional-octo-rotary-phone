@@ -1,8 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="CoolProjecT-js-2.0-SNAPSHOT">
     <output-path>$PROJECT_DIR$/build/libs</output-path>
-    <root id="archive" name="CoolProjecT-js-2.0-SNAPSHOT.jar">
-      <element id="module-output" name="CoolProjecT.jsMain" />
-    </root>
+    <root id="archive" name="CoolProjecT-js-2.0-SNAPSHOT.jar" />
   </artifact>
 </component>
